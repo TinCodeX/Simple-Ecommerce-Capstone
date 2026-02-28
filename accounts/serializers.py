@@ -7,14 +7,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name')
-
+#password can be sent but never returned in response
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
         fields = ('username', 'email', 'password', 'first_name', 'last_name')
-
+#stors password also
     def create(self, validated_data):
         user = User.objects.create_user(
             username=validated_data['username'],

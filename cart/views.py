@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from .models import CartItem
 from products.models import Product
 
-class UpdateCartAPIView(APIView):
+class AddToCartView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
