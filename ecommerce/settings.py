@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(BASE_DIR / '.env')
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
@@ -38,10 +38,11 @@ else:  # Local development
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.onrender.com']
+# settings.py
 
+ALLOWED_HOSTS = ['127.0.0.1', '.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
 
 
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
 
     'accounts',
